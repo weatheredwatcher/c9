@@ -21,7 +21,7 @@ __license__ = "GPL3"
 import sys
 import getopt
 import ConfigParser
-
+import subprocess
 
 
 
@@ -53,11 +53,11 @@ class C9():
                 print "Configuration Written: %s" % (self.path, )
                 sys.exit()
             
-    def print_name(self):
-        
-        output = "~/source/cloud9/cloud9.sh -p 3131 -w %s" % (self.project, )
-        
-        print output
+    def run_ide(self):
+        path = "home/weatheredwatcher/source/cloud9/bin/cloud9.sh"
+        args = " -p 3131 -w %s" % (self.project, )
+        subprocess.call('ls', ' -l')
+        #print path + args
 
 def usage():
         print __doc__
@@ -67,7 +67,7 @@ def main(argv):
     
     
     me = C9(argv)
-    me.print_name()
+    me.run_ide()
     
     
 
